@@ -1,24 +1,29 @@
 .row {
-  align-items: center;
+    align-items: center;
 }
 
 table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-td, th {
-  border: 1px solid #4b4949;
-  text-align: left;
-  padding: 8px;
+td,
+th {
+    border: 1px solid #4b4949;
+    text-align: left;
+    padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+    background-color: #dddddd;
+}
+
+tr:hover {
+    background-color: #ddd;
 }
 
 .head-align {
-  padding-top: 1rem;
-  padding-left: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
 }
