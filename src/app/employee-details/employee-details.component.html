@@ -1,0 +1,53 @@
+     <header>
+       <h2 class="head-align">Employee Details ({{employeesFilter.length}})</h2>
+     </header>
+     <hr>
+     <div class="container">
+       <div class="row col-12">
+         <div class="col-12 col-xs-12 col-sm-4 col-md-2">
+           <select placeholder="Department" [(ngModel)]="departmentVal" (change)="checkValid()">
+             <option *ngFor="let data of department" [value]="data">{{data}}</option>
+           </select>
+         </div>
+         <div class=" col-12 col-xs-12 col-sm-4 col-md-3">
+           <input placeholder="Name / Email" [(ngModel)]="name" (keyup)="checkValid()">
+         </div>
+         <div class="col-12 col-xs-12 col-sm-2 col-md-1">
+           <button type="button" [disabled]="invalidFlag" (click)="searchEmployee()">Search</button>
+         </div>
+         <div class="col-12 col-xs-12 col-sm-2 col-md-3" style="padding-left: 2em;">
+           <button type="button" (click)="reset()">Reset and Reload Data</button>
+         </div>
+         <div class="col-12 col-xs-12 col-sm-6 col-md-2">
+           <select (change)="sortEmp($event.target.value)" placeholder="Sort By">
+             <option value="1">name(a-z)</option>
+             <option value="2">name(z-a)</option>
+             <option value="3">age</option>
+             <option value="4">email</option>
+           </select>
+         </div>
+       </div>
+       <div style="padding-top: 2em;">
+         <div class="row">
+           <div class="col-12 col-xs-12 col-sm-12 col-md-12">
+             <table>
+               <thead>
+                 <tr>
+                   <th *ngFor="let head of headElements; let i = index">{{head}}
+                   </th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let el of employeesFilter; let i = index">
+                   <td>{{el.name}}</td>
+                   <td>{{el.age}}</td>
+                   <td>{{el.email}}</td>
+                   <td><span data-toggle="tooltip" [title]="el.departments">{{el.departments.length}}</span>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+     </div>
